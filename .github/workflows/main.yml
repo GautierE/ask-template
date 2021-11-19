@@ -7,7 +7,8 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    working-directory: ./front
+    env:
+      working-directory: ./front
     steps:
       - run: npm install
       - run: eslint .
