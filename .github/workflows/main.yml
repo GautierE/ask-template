@@ -42,10 +42,6 @@ jobs:
     - run: npm install --only=dev
 
   docker:
-    defaults:
-      run:
-        working-directory: ./back
-
     runs-on: ubuntu-latest
     steps:
       -
