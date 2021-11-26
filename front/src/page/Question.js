@@ -1,23 +1,23 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-import { useMutation } from "react-query";
-import { useHistory } from "react-router";
-import api from "../api";
+import { useMutation } from 'react-query';
+import { useHistory } from 'react-router';
+import api from '../api';
 
 export default function Question() {
   const history = useHistory();
 
-  const [author, setAuthor] = useState("");
-  const [type, setType] = useState("question");
-  const [question, setQuestion] = useState("");
+  const [author, setAuthor] = useState('');
+  const [type, setType] = useState('question');
+  const [question, setQuestion] = useState('');
 
   const { mutate: addQuestion } = useMutation(api.questions.addQuestion, {
     onSuccess: (data) => {
-      history.push("/");
+      history.push('/');
     },
   });
 
@@ -61,7 +61,7 @@ export default function Question() {
           as="textarea"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
-          isInvalid={question === ""}
+          isInvalid={question === ''}
           rows={5}
         />
       </Form.Group>
@@ -69,7 +69,7 @@ export default function Question() {
       <Button
         onClick={handleAdd}
         disabled={!question}
-        style={{ marginTop: "10px" }}
+        style={{ marginTop: '10px' }}
       >
         Ajouter
       </Button>

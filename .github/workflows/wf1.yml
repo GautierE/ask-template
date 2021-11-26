@@ -1,0 +1,35 @@
+name: GitHub Actions Eslint
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  front:
+    defaults:
+      run:
+        working-directory: ./front
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install --only=dev
+      - run: npx prettier --c .
+
+  back:
+    defaults:
+      run:
+        working-directory: ./back
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install --only=dev
+      - run: npm run lint
+      - run: npx prettier --c .

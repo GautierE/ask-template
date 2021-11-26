@@ -1,8 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-const Sequelize = require("sequelize");
+const fs = require('fs');
+const path = require('path');
+const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || "development";
+const env = process.env.NODE_ENV || 'development';
 const db = {};
 
 let sequelize = new Sequelize(process.env.BDD_URL);
@@ -10,10 +10,10 @@ let sequelize = new Sequelize(process.env.BDD_URL);
 fs.readdirSync(__dirname)
   .filter((file) => {
     return (
-      file.indexOf(".") !== 0 &&
+      file.indexOf('.') !== 0 &&
       file !== basename &&
-      file.slice(-3) === ".js" &&
-      file != "config.js"
+      file.slice(-3) === '.js' &&
+      file != 'config.js'
     );
   })
   .forEach((file) => {

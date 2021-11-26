@@ -1,14 +1,14 @@
-FROM node:16-alpine as runner
+# Conteneur de dev
+FROM node:14 as runner
 ENV NODE_ENV=development
 
-RUN apk update
-
-COPY  . /app
 WORKDIR /app
+COPY ./ /app
 
 EXPOSE 3630
-CMD ["npm", "run", ""]
+CMD ["npm", "run", "dev"]
 
+# Conteneur de prod
 FROM runner as builder
 ENV NODE_ENV=production
 
